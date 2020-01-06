@@ -1,0 +1,40 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+    <div class="text-center">
+        <br /><br />
+        <h1 class="display-4">What happened?</h1>
+        <br /><hr /><br />
+        @if (Model.CurrentUser.login != null)
+        {
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4>@Html.DisplayFor(m => m.CurrentUser.login) is logged in.</h4>
+                </div>
+                <br /><br /><br />
+            </div>
+            <hr /><br />
+            <div class="row">
+                <div class="col-lg-6">
+                    <a asp-page="game" class="btn btn-dark">Start Game</a>
+                </div>
+                <div class="col-lg-6">
+                    <a asp-page="achievements" class="btn btn-dark">Achievements</a>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="row">
+                <div class="col-lg-6">
+                    <a asp-page="./login" class="btn btn-dark">login</a>
+                </div>
+                <div class="col-lg-6">
+                    <a asp-page="registration" class="btn btn-dark">registration</a>
+                </div>
+            </div>
+        }
+    </div>

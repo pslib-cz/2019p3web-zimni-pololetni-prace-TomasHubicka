@@ -1,0 +1,34 @@
+﻿@page
+@model Gamebook.Pages.loginModel
+@{
+    ViewData["Title"] = "login";
+}
+    <div class="text-center">
+        <br /><br />
+        <h1>login</h1>
+        <br /><hr />
+    </div>
+@if(Model.Error == 1) { 
+<p style="background-color: red; color: black"> Wrong login or password. </p>
+}
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="user.login" class="control-label"></label>
+                <input asp-for="user.login" class="form-control" />
+                <span asp-validation-for="user.login" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="user.password" class="control-label"></label>
+                <input asp-for="user.password" type="password" class="form-control" />
+                <span asp-validation-for="user.password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+<a asp-page="./index" class="btn btn-dark">Back</a>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gamebook", "Gamebook\Gamebook.csproj", "{DD657B88-5E1E-40E2-B1DB-69F8404F5E55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD657B88-5E1E-40E2-B1DB-69F8404F5E55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD657B88-5E1E-40E2-B1DB-69F8404F5E55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD657B88-5E1E-40E2-B1DB-69F8404F5E55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD657B88-5E1E-40E2-B1DB-69F8404F5E55}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DF46D7E4-B3BE-471E-8B74-F432A4D8CAFA}
+	EndGlobalSection
+EndGlobal
