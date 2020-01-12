@@ -1,4 +1,5 @@
 ﻿using Gamebook.Models;
+using Gamebook.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,6 @@ namespace Gamebook.Model
     interface IAchievementsRepository
     {
         void Add(ApplicationDBContext db, Achievements achievements);
-        Achievements GetAchievement(int Id);
-        List<Achievements> GetAllAchievements();
+        List<string> GetAchievement(int Id);
     }
 }

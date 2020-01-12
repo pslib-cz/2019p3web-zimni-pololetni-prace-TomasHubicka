@@ -9,6 +9,7 @@ namespace Gamebook.Services
 {
     public class GameLogic
     {
+        ApplicationDBContext _db = new ApplicationDBContext();
         AchievementsRepository _ar = new AchievementsRepository();
         public bool Start(SessionStorage<GameState> _ss, SessionStorage<int> _cr, SessionStorage<bool> _w)
         {
@@ -44,9 +45,11 @@ namespace Gamebook.Services
                 Game.EnteredBasement = true;
                 _ss.Save("_Game", Game);
                 _cr.Save("_CurrentRoom", 2);
-                Achievements achievements = _ar.GetAchievement(_u.LoadOrCreate("_User").Id);
-                achievements.TurnAround = true;
-                _ar.Update(achievements);
+                Achievements a = new Achievements();
+                a.UserId = _u.LoadOrCreate("_User").Id;
+                a.AchievementId = 1;
+                _ar.Add(_db, a);
+                _db.SaveChanges();
             }
             else if (_ss.LoadOrCreate("_Game").Start == 2)
             {
@@ -136,9 +139,11 @@ namespace Gamebook.Services
                 Game.EnteredBasement = true;
                 _ss.Save("_Game", Game);
                 _cr.Save("_CurrentRoom", 11);
-                Achievements achievements = _ar.GetAchievement(_u.LoadOrCreate("_User").Id);
-                achievements.BedroomAdventure = true;
-                _ar.Update(achievements);
+                Achievements a = new Achievements();
+                a.UserId = _u.LoadOrCreate("_User").Id;
+                a.AchievementId = 2;
+                _ar.Add(_db, a);
+                _db.SaveChanges();
             }
             else if (_ss.LoadOrCreate("_Game").BedroomHall3 == 2)
             {
@@ -210,9 +215,11 @@ namespace Gamebook.Services
                     Game.EnteredBasement = true;
                     _ss.Save("_Game", Game);
                     _cr.Save("_CurrentRoom", 18);
-                    Achievements achievements = _ar.GetAchievement(_u.LoadOrCreate("_User").Id);
-                    achievements.FallOut = true;
-                    _ar.Update(achievements);
+                    Achievements a = new Achievements();
+                    a.UserId = _u.LoadOrCreate("_User").Id;
+                    a.AchievementId = 3;
+                    _ar.Add(_db, a);
+                    _db.SaveChanges();
                 }
                 else if (_w.LoadOrCreate("_Waiting") == true)
                 {
@@ -244,9 +251,11 @@ namespace Gamebook.Services
                     {
                         //has crowbar - end
                         _cr.Save("_CurrentRoom", 20);
-                        Achievements achievements = _ar.GetAchievement(_u.LoadOrCreate("_User").Id);
-                        achievements.CrowbarsAreHeavy = true;
-                        _ar.Update(achievements);
+                        Achievements a = new Achievements();
+                        a.UserId = _u.LoadOrCreate("_User").Id;
+                        a.AchievementId = 4;
+                        _ar.Add(_db, a);
+                        _db.SaveChanges();
                     }
                     else if(_ss.LoadOrCreate("_Game").CrowbarInv == false)
                     {
@@ -256,17 +265,21 @@ namespace Gamebook.Services
                         {
                             //push - end
                             _cr.Save("_CurrentRoom", 22);
-                            Achievements achievements = _ar.GetAchievement(_u.LoadOrCreate("_User").Id);
-                            achievements.PushingNeverWorks = true;
-                            _ar.Update(achievements);
+                            Achievements a = new Achievements();
+                            a.UserId = _u.LoadOrCreate("_User").Id;
+                            a.AchievementId = 5;
+                            _ar.Add(_db, a);
+                            _db.SaveChanges();
                         }
                         else if(_ss.LoadOrCreate("_Game").PushPull == 2)
                         {
                             //pull - win
                             _cr.Save("_CurrentRoom", 23);
-                            Achievements achievements = _ar.GetAchievement(_u.LoadOrCreate("_User").Id);
-                            achievements.win = true;
-                            _ar.Update(achievements);
+                            Achievements a = new Achievements();
+                            a.UserId = _u.LoadOrCreate("_User").Id;
+                            a.AchievementId = 0;
+                            _ar.Add(_db, a);
+                            _db.SaveChanges();
                         }
                         else if (_w.LoadOrCreate("_Waiting") == true)
                         {
@@ -284,17 +297,21 @@ namespace Gamebook.Services
                     {
                         //has knife - end
                         _cr.Save("_CurrentRoom", 24);
-                        Achievements achievements = _ar.GetAchievement(_u.LoadOrCreate("_User").Id);
-                        achievements.KnifeFight = true;
-                        _ar.Update(achievements);
+                        Achievements a = new Achievements();
+                        a.UserId = _u.LoadOrCreate("_User").Id;
+                        a.AchievementId = 6;
+                        _ar.Add(_db, a);
+                        _db.SaveChanges();
                     }
                     else if (_ss.LoadOrCreate("_Game").KnifeInv == false)
                     {
                         //doesn't have knife - end
                         _cr.Save("_CurrentRoom", 25);
-                        Achievements achievements = _ar.GetAchievement(_u.LoadOrCreate("_User").Id);
-                        achievements.KungFuFight = true;
-                        _ar.Update(achievements);
+                        Achievements a = new Achievements();
+                        a.UserId = _u.LoadOrCreate("_User").Id;
+                        a.AchievementId = 7;
+                        _ar.Add(_db, a);
+                        _db.SaveChanges();
                     }
                 }
                 else if (_w.LoadOrCreate("_Waiting") == true)
@@ -311,13 +328,17 @@ namespace Gamebook.Services
                 _cr.Save("_CurrentRoom", 26);
                 if(_ss.LoadOrCreate("_Game").Start == 3 && _ss.LoadOrCreate("_Game").KitchenHall2 == 2 && _ss.LoadOrCreate("_Game").BedroomHall3 == 2 && _ss.LoadOrCreate("_Game").LivingRoomBasementWindow == 2)
                 {
-                    Achievements achievement = _ar.GetAchievement(_u.LoadOrCreate("_User").Id);
-                    achievement.DoNothingAndDie = true;
-                    _ar.Update(achievement);
+                    Achievements ac = new Achievements();
+                    ac.UserId = _u.LoadOrCreate("_User").Id;
+                    ac.AchievementId = 9;
+                    _ar.Add(_db, ac);
+                    _db.SaveChanges();
                 }
-                Achievements achievements = _ar.GetAchievement(_u.LoadOrCreate("_User").Id);
-                achievements.ItsDark = true;
-                _ar.Update(achievements);
+                Achievements a = new Achievements();
+                a.UserId = _u.LoadOrCreate("_User").Id;
+                a.AchievementId = 8;
+                _ar.Add(_db, a);
+                _db.SaveChanges();
             }
         }
     }

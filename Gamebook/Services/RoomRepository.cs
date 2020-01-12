@@ -10,11 +10,18 @@ namespace Gamebook.Services
     public class RoomRepository : IRoomRepository
     {
         ApplicationDBContext _db = new ApplicationDBContext();
-        List<RoomTexts> Rooms { get; set; }
 
-        public List<RoomTexts> GetAllRooms()
+        public List<linkText> GetLinkTexts(int Id)
         {
-            return Rooms = _db.roomTexts.ToList();
+            List<linkText> texts = new List<linkText>();
+            foreach(linkText x in _db.linkTexts)
+            {
+                if(x.RoomId == Id)
+                {
+                    texts.Add(x);
+                }
+            }
+            return texts;
         }
 
         public RoomTexts GetRoom(int Id)

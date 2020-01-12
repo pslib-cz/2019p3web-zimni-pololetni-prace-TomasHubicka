@@ -6,62 +6,42 @@
 
 
     <div class="text-center">
+        
+
         <br /><br />
         <h1>Game</h1><br /><hr /><br /><br />
         <h6>@Html.DisplayFor(m => m.roomText.text)</h6><br /><br /><hr /><br /><br />
         <div class="row">
-            @if (Model._cr.LoadOrCreate("_CurrentRoom") == 14 || Model._cr.LoadOrCreate("_CurrentRoom") == 15 || Model._cr.LoadOrCreate("_CurrentRoom") == 16 || Model._cr.LoadOrCreate("_CurrentRoom") == 17)
+            @if (Model.linkTexts.Count == 1)
             {
-                <div class="col-lg-12">
-                    <form asp-page-handler="basement" method="post">
-                        <button class="btn btn-dark">Continue into the basement</button>
-                    </form>
-                </div>
+            <div class="col">
+                <form asp-page-handler="basement" method="post">
+                    <button class="btn btn-dark">Continue into the basement.</button>
+                </form>
+            </div>
             }
-            else if (Model.roomText.linktext3 != "")
+            else if (Model.linkTexts.Count > 1)
             {
-                <div class="col-lg-4">
-                    <form asp-page-handler="one" method="post">
-                        <button class="btn btn-dark">@Html.DisplayFor(m => m.roomText.linktext1)</button>
-                    </form>
-                </div>
-                <div class="col-lg-4">
-                    <form asp-page-handler="two" method="post">
-                        <button class="btn btn-dark">@Html.DisplayFor(m => m.roomText.linktext2)</button>
-                    </form>
-                </div>
-                <div class="col-lg-4">
-                    <form asp-page-handler="three" method="post">
-                        <button class="btn btn-dark">@Html.DisplayFor(m => m.roomText.linktext3)</button>
-                    </form>
-                </div>
+                foreach (Model.linkText x in Model.linkTexts)
+                {
+                    <div class="col">
+                        <form asp-page-handler="@x.LinkNumber" method="post">
+                            <button class="btn btn-dark">@x.text</button>
+                        </form>
+                    </div>
+                }
             }
-            else if (Model.roomText.linktext3 == "" && Model.roomText.linktext2 != "" && Model.roomText.linktext1 != "")
+            @if (Model.linkTexts.Count == 0)
             {
-                <div class="col-lg-6">
-                    <form asp-page-handler="one" method="post">
-                        <button class="btn btn-dark">@Html.DisplayFor(m => m.roomText.linktext1)</button>
-                    </form>
-                </div>
-                <div class="col-lg-6">
-                    <form asp-page-handler="two" method="post">
-                        <button class="btn btn-dark">@Html.DisplayFor(m => m.roomText.linktext2)</button>
-                    </form>
-                </div>
+            <div class="col">
+                <a asp-page="./index" class="btn btn-dark">Back to Menu</a>
+            </div>
+            <div class="col">
+                <a asp-page="./Game" class="btn btn-dark">Restart</a>
+            </div>
+            <div class="col">
+                <a asp-page="./achievements" class="btn btn-dark">Achievements</a>
+            </div>
             }
         </div>
-        @if (Model.roomText.linktext1 == "" && Model.roomText.linktext2 == "" && Model.roomText.linktext2 == "" && Model._ss.LoadOrCreate("_Game").EnteredBasement == true)
-        {
-            <div class="row">
-                <div class="col-lg-4">
-                    <a asp-page="./index" class="btn btn-dark">Back to Menu</a>
-                </div>
-                <div class="col-lg-4">
-                    <a asp-page="./Game" class="btn btn-dark">Restart</a>
-                </div>
-                <div class="col-lg-4">
-                    <a asp-page="./achievements" class="btn btn-dark">Achievements</a>
-                </div>
-            </div>
-        }
     </div>

@@ -11,17 +11,23 @@
         @if (Model.CurrentUser.login != null)
         {
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col">
                     <h4>@Html.DisplayFor(m => m.CurrentUser.login) is logged in.</h4>
                 </div>
                 <br /><br /><br />
             </div>
             <hr /><br />
             <div class="row">
-                <div class="col-lg-6">
+
+                <div class="col">
+                    <form asp-page-handler="logout" method="post">
+                        <button class="btn btn-dark">Log Out</button>
+                    </form>
+                </div>
+                <div class="col">
                     <a asp-page="game" class="btn btn-dark">Start Game</a>
                 </div>
-                <div class="col-lg-6">
+                <div class="col">
                     <a asp-page="achievements" class="btn btn-dark">Achievements</a>
                 </div>
             </div>
@@ -29,11 +35,11 @@
         else
         {
             <div class="row">
-                <div class="col-lg-6">
-                    <a asp-page="./login" class="btn btn-dark">login</a>
+                <div class="col">
+                    <a asp-page="./login" class="btn btn-dark">Log In</a>
                 </div>
-                <div class="col-lg-6">
-                    <a asp-page="registration" class="btn btn-dark">registration</a>
+                <div class="col">
+                    <a asp-page="registration" class="btn btn-dark">Register</a>
                 </div>
             </div>
         }

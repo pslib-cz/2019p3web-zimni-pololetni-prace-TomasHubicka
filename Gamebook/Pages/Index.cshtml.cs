@@ -30,7 +30,14 @@ namespace Gamebook.Pages
         {
             CurrentUser = _ss.LoadOrCreate("_User");
             Users = _ur.GetAllUsers();
-            roomTexts = _rr.GetAllRooms();
+        }
+        public IActionResult OnPostLogout()
+        {
+            User empty = new User();
+            _ss.Save("_User", empty);
+            CurrentUser = _ss.LoadOrCreate("_User");
+            Users = _ur.GetAllUsers();
+            return Page();
         }
     }
 }

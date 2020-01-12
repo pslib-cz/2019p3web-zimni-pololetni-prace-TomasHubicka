@@ -3,14 +3,16 @@ using Gamebook.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Gamebook.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200112141039_idk")]
+    partial class idk
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,7 +41,7 @@ namespace Gamebook.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("LinkNumber");
+                    b.Property<int>("LinkNumber");
 
                     b.Property<int>("RoomId");
 
@@ -53,224 +55,224 @@ namespace Gamebook.Migrations
                         new
                         {
                             Id = 1,
-                            LinkNumber = "one",
+                            LinkNumber = 1,
                             RoomId = 1,
                             text = "Outside"
                         },
                         new
                         {
                             Id = 2,
-                            LinkNumber = "two",
+                            LinkNumber = 2,
                             RoomId = 1,
                             text = "Garage"
                         },
                         new
                         {
                             Id = 3,
-                            LinkNumber = "three",
+                            LinkNumber = 3,
                             RoomId = 1,
                             text = "Hallway"
                         },
                         new
                         {
                             Id = 4,
-                            LinkNumber = "one",
+                            LinkNumber = 1,
                             RoomId = 3,
                             text = "Yes"
                         },
                         new
                         {
                             Id = 5,
-                            LinkNumber = "two",
+                            LinkNumber = 2,
                             RoomId = 3,
                             text = "No"
                         },
                         new
                         {
                             Id = 6,
-                            LinkNumber = "one",
+                            LinkNumber = 1,
                             RoomId = 4,
                             text = "Bedroom"
                         },
                         new
                         {
                             Id = 7,
-                            LinkNumber = "two",
+                            LinkNumber = 2,
                             RoomId = 4,
                             text = "Continue down the hallway"
                         },
                         new
                         {
                             Id = 8,
-                            LinkNumber = "one",
+                            LinkNumber = 1,
                             RoomId = 5,
                             text = "Bedroom"
                         },
                         new
                         {
                             Id = 9,
-                            LinkNumber = "two",
+                            LinkNumber = 2,
                             RoomId = 5,
                             text = "Continue down the hallway"
                         },
                         new
                         {
                             Id = 10,
-                            LinkNumber = "one",
+                            LinkNumber = 1,
                             RoomId = 6,
                             text = "kitchen"
                         },
                         new
                         {
                             Id = 11,
-                            LinkNumber = "two",
+                            LinkNumber = 2,
                             RoomId = 6,
                             text = "Continue down the hallway hallway"
                         },
                         new
                         {
                             Id = 12,
-                            LinkNumber = "one",
+                            LinkNumber = 1,
                             RoomId = 7,
                             text = "Yes"
                         },
                         new
                         {
                             Id = 13,
-                            LinkNumber = "two",
+                            LinkNumber = 2,
                             RoomId = 7,
                             text = "No"
                         },
                         new
                         {
                             Id = 14,
-                            LinkNumber = "one",
+                            LinkNumber = 1,
                             RoomId = 8,
                             text = "Bedroom"
                         },
                         new
                         {
                             Id = 15,
-                            LinkNumber = "two",
+                            LinkNumber = 2,
                             RoomId = 8,
                             text = "Continue down the hallway"
                         },
                         new
                         {
                             Id = 16,
-                            LinkNumber = "one",
+                            LinkNumber = 1,
                             RoomId = 9,
                             text = "Bedroom"
                         },
                         new
                         {
                             Id = 17,
-                            LinkNumber = "two",
+                            LinkNumber = 2,
                             RoomId = 9,
                             text = "Continue down the hallway"
                         },
                         new
                         {
                             Id = 18,
-                            LinkNumber = "one",
+                            LinkNumber = 1,
                             RoomId = 10,
                             text = "Bedroom"
                         },
                         new
                         {
                             Id = 19,
-                            LinkNumber = "two",
+                            LinkNumber = 2,
                             RoomId = 10,
                             text = "Continue down the hallway"
                         },
                         new
                         {
                             Id = 20,
-                            LinkNumber = "one",
+                            LinkNumber = 1,
                             RoomId = 12,
                             text = "Living room"
                         },
                         new
                         {
                             Id = 21,
-                            LinkNumber = "two",
+                            LinkNumber = 2,
                             RoomId = 12,
                             text = "Basement"
                         },
                         new
                         {
                             Id = 22,
-                            LinkNumber = "three",
+                            LinkNumber = 3,
                             RoomId = 12,
                             text = "Cool window, check it out"
                         },
                         new
                         {
                             Id = 23,
-                            LinkNumber = "one",
+                            LinkNumber = 1,
                             RoomId = 13,
                             text = "Yes"
                         },
                         new
                         {
                             Id = 24,
-                            LinkNumber = "two",
+                            LinkNumber = 2,
                             RoomId = 13,
                             text = "No"
                         },
                         new
                         {
                             Id = 25,
-                            LinkNumber = "one",
+                            LinkNumber = 1,
                             RoomId = 19,
                             text = "Run"
                         },
                         new
                         {
                             Id = 26,
-                            LinkNumber = "two",
+                            LinkNumber = 2,
                             RoomId = 19,
                             text = "Fight"
                         },
                         new
                         {
                             Id = 27,
-                            LinkNumber = "one",
+                            LinkNumber = 1,
                             RoomId = 21,
                             text = "Push"
                         },
                         new
                         {
                             Id = 28,
-                            LinkNumber = "two",
+                            LinkNumber = 2,
                             RoomId = 21,
                             text = "Pull"
                         },
                         new
                         {
                             Id = 29,
-                            LinkNumber = "one",
+                            LinkNumber = 1,
                             RoomId = 14,
                             text = "Continue into the basement."
                         },
                         new
                         {
                             Id = 30,
-                            LinkNumber = "one",
+                            LinkNumber = 1,
                             RoomId = 15,
                             text = "Continue into the basement."
                         },
                         new
                         {
                             Id = 31,
-                            LinkNumber = "one",
+                            LinkNumber = 1,
                             RoomId = 16,
                             text = "Continue into the basement."
                         },
                         new
                         {
                             Id = 32,
-                            LinkNumber = "one",
+                            LinkNumber = 1,
                             RoomId = 17,
                             text = "Continue into the basement."
                         });

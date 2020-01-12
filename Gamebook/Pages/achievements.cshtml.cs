@@ -16,7 +16,7 @@ namespace Gamebook.Pages
         private readonly ILogger<achievementsModel> _logger;
         SessionStorage<User> _ss;
         AchievementsRepository _ar = new AchievementsRepository();
-        public Achievements achievements;
+        public List<string> achievements = new List<string>();
         public achievementsModel(ILogger<achievementsModel> logger, SessionStorage<User> ss)
         {
             _logger = logger;

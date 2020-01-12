@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tomhubi017\\Source\\Repos\\Gamebook\\Gamebook\\Gamebook.csproj": {}
+    "C:\\Users\\Tomáš\\Source\\Repos\\2019p3web-zimni-pololetni-prace-TomasHubicka\\Gamebook\\Gamebook.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tomhubi017\\Source\\Repos\\Gamebook\\Gamebook\\Gamebook.csproj": {
+    "C:\\Users\\Tomáš\\Source\\Repos\\2019p3web-zimni-pololetni-prace-TomasHubicka\\Gamebook\\Gamebook.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tomhubi017\\Source\\Repos\\Gamebook\\Gamebook\\Gamebook.csproj",
+        "projectUniqueName": "C:\\Users\\Tomáš\\Source\\Repos\\2019p3web-zimni-pololetni-prace-TomasHubicka\\Gamebook\\Gamebook.csproj",
         "projectName": "Gamebook",
-        "projectPath": "C:\\Users\\tomhubi017\\Source\\Repos\\Gamebook\\Gamebook\\Gamebook.csproj",
-        "packagesPath": "C:\\Users\\tomhubi017\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tomhubi017\\Source\\Repos\\Gamebook\\Gamebook\\obj\\",
+        "projectPath": "C:\\Users\\Tomáš\\Source\\Repos\\2019p3web-zimni-pololetni-prace-TomasHubicka\\Gamebook\\Gamebook.csproj",
+        "packagesPath": "C:\\Users\\Tomáš\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tomáš\\Source\\Repos\\2019p3web-zimni-pololetni-prace-TomasHubicka\\Gamebook\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\tomhubi017\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Tomáš\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

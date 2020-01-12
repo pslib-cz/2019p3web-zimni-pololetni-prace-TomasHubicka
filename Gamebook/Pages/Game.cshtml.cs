@@ -22,6 +22,7 @@ namespace Gamebook.Pages
         RoomRepository _rr = new RoomRepository();
         GameLogic _gl = new GameLogic();
         public RoomTexts roomText { get; set; } = new RoomTexts();
+        public List<linkText> linkTexts { get; set; } = new List<linkText>();
         public User CurrentUser { get; set; }
         public GameModel(ILogger<IndexModel> logger, SessionStorage<GameState> ss, SessionStorage<int> cr, SessionStorage<bool> w, SessionStorage<User> u)
         {
@@ -35,6 +36,7 @@ namespace Gamebook.Pages
         {
             _gl.Start(_ss, _cr, _w);
             roomText = _rr.GetRoom(_cr.LoadOrCreate("_CurrentRoom"));
+            linkTexts = _rr.GetLinkTexts(_cr.LoadOrCreate("_CurrentRoom"));
 
         }
         public IActionResult OnPostBasement()
@@ -45,6 +47,7 @@ namespace Gamebook.Pages
             _gl.Run(_ss, _cr, _w, _u, 0);
             _w.Save("_Waiting", true);
             roomText = _rr.GetRoom(_cr.LoadOrCreate("_CurrentRoom"));
+            linkTexts = _rr.GetLinkTexts(_cr.LoadOrCreate("_CurrentRoom"));
             return Page();
 
         }
@@ -53,6 +56,7 @@ namespace Gamebook.Pages
             _gl.Run(_ss, _cr, _w, _u, 1);
             _w.Save("_Waiting", true);
             roomText = _rr.GetRoom(_cr.LoadOrCreate("_CurrentRoom"));
+            linkTexts = _rr.GetLinkTexts(_cr.LoadOrCreate("_CurrentRoom"));
             return Page();
 
         }
@@ -61,6 +65,7 @@ namespace Gamebook.Pages
             _gl.Run(_ss, _cr, _w, _u, 2);
             _w.Save("_Waiting", true);
             roomText = _rr.GetRoom(_cr.LoadOrCreate("_CurrentRoom"));
+            linkTexts = _rr.GetLinkTexts(_cr.LoadOrCreate("_CurrentRoom"));
             return Page();
         }
         public IActionResult OnPostThree()
@@ -68,6 +73,7 @@ namespace Gamebook.Pages
             _gl.Run(_ss, _cr, _w, _u, 3);
             _w.Save("_Waiting", true);
             roomText = _rr.GetRoom(_cr.LoadOrCreate("_CurrentRoom"));
+            linkTexts = _rr.GetLinkTexts(_cr.LoadOrCreate("_CurrentRoom"));
             return Page();
         }
     }

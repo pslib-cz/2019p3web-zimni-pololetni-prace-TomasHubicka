@@ -10,37 +10,61 @@ namespace Gamebook.Services
     public class AchievementsRepository : IAchievementsRepository
     {
         ApplicationDBContext _db = new ApplicationDBContext();
-        List<Achievements> achievements { get; set; }
         public void Add(ApplicationDBContext db, Achievements achievements)
         {
-            db.achievements.Add(achievements);
-        }
-        public List<Achievements> GetAllAchievements()
-        {
-            return achievements = _db.achievements.ToList();
+            bool adding = true;
+
+            foreach(Achievements x in db.achievements)
+            {
+                if (x.UserId == achievements.UserId && x.AchievementId == achievements.AchievementId)
+                {
+                    adding = false;
+                    break;
+                }
+            }
+            if (adding)
+            {
+                db.achievements.Add(achievements);
+            }
+            
         }
 
-        public Achievements GetAchievement(int Id)
+        public List<string> GetAchievement(int Id)
         {
-            return _db.achievements.FirstOrDefault(x => x.UserId == Id);
-        }
-        public void Update(Achievements achievementsChanges)
-        {
-            Achievements achievements = _db.achievements.FirstOrDefault(x => x.Id == achievementsChanges.Id);
-            if (achievements != null)
+            List<Achievements> achievements = new List<Achievements>();
+            foreach(Achievements x in _db.achievements)
             {
-                achievements.win = achievementsChanges.win;
-                achievements.TurnAround = achievementsChanges.TurnAround;
-                achievements.BedroomAdventure = achievementsChanges.BedroomAdventure;
-                achievements.FallOut = achievementsChanges.FallOut;
-                achievements.CrowbarsAreHeavy = achievementsChanges.CrowbarsAreHeavy;
-                achievements.PushingNeverWorks = achievementsChanges.PushingNeverWorks;
-                achievements.KnifeFight = achievementsChanges.KnifeFight;
-                achievements.KungFuFight = achievementsChanges.KungFuFight;
-                achievements.ItsDark = achievementsChanges.ItsDark;
-                achievements.DoNothingAndDie = achievementsChanges.DoNothingAndDie;
-                _db.SaveChanges();
+                if (x.UserId == Id)
+                {
+                    achievements.Add(x);
+                }
             }
+            List<string> completion = new List<string>();
+            for (int i = 0; i < 10; i++)
+            {
+                if (achievements.Count != 0)
+                {
+                    int g = 0;
+                    for (int o = 0; o < achievements.Count; o++)
+                    {
+                        g = o;
+                        if (achievements[o].AchievementId == i)
+                        {
+                            completion.Add("Completed");
+                            break;
+                        }
+                    }
+                    if (achievements[g].AchievementId != i)
+                    {
+                        completion.Add("Not Completed");
+                    }
+                }
+                else
+                {
+                        completion.Add("Not Completed");
+                }
+            }
+            return completion;
         }
     }
 }

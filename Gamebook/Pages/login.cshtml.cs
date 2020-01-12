@@ -38,12 +38,6 @@ namespace Gamebook.Pages
         {
             if (_ul.login(_ss, user) == true)
             {
-                if(_ar.GetAchievement(_ss.LoadOrCreate("_User").Id) == null)
-                {
-                    achievements.UserId = _ss.LoadOrCreate("_User").Id;
-                    _ar.Add(_db, achievements);
-                }
-                await _db.SaveChangesAsync();
                 return RedirectToPage("./index");
             }
             else

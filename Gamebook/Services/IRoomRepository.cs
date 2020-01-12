@@ -9,6 +9,6 @@ namespace Gamebook.Model
     interface IRoomRepository
     {
         RoomTexts GetRoom(int Id);
-        List<RoomTexts> GetAllRooms();
+        List<linkText> GetLinkTexts(int Id);
     }
 }
