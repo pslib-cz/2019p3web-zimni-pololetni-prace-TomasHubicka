@@ -7,14 +7,22 @@ using System.Threading.Tasks;
 
 namespace Gamebook.Services
 {
-    public class AchievementsRepository : IAchievementsRepository
+    public class AchievementsRepository // : IAchievementsRepository
     {
+
+
         ApplicationDBContext _db = new ApplicationDBContext();
-        public void Add(ApplicationDBContext db, Achievements achievements)
+
+        public AchievementsRepository(ApplicationDBContext db)
+        {
+            _db = db;
+        }
+
+        public void Add(Achievements achievements)
         {
             bool adding = true;
 
-            foreach(Achievements x in db.achievements)
+            foreach(Achievements x in _db.achievements)
             {
                 if (x.UserId == achievements.UserId && x.AchievementId == achievements.AchievementId)
                 {
@@ -24,7 +32,7 @@ namespace Gamebook.Services
             }
             if (adding)
             {
-                db.achievements.Add(achievements);
+                _db.achievements.Add(achievements);
             }
             
         }
@@ -32,7 +40,8 @@ namespace Gamebook.Services
         public List<string> GetAchievement(int Id)
         {
             List<Achievements> achievements = new List<Achievements>();
-            foreach(Achievements x in _db.achievements)
+            //return _db.achievements.Where(a => a.UserId == Id).ToList();
+            foreach (Achievements x in _db.achievements.Where(a => a.UserId == Id))
             {
                 if (x.UserId == Id)
                 {

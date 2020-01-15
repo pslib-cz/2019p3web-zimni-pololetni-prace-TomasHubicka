@@ -32,7 +32,7 @@ namespace Gamebook.Pages
             _w = w;
             _u = u;
         }
-        public void OnGet()
+        public void OnGet(int id = 1)
         {
             _gl.Start(_ss, _cr, _w);
             roomText = _rr.GetRoom(_cr.LoadOrCreate("_CurrentRoom"));

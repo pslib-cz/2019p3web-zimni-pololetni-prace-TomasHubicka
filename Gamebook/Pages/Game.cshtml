@@ -25,23 +25,27 @@
                 foreach (Model.linkText x in Model.linkTexts)
                 {
                     <div class="col">
-                        <form asp-page-handler="@x.LinkNumber" method="post">
+                        <form asp-route-id="@x.LinkNumber" method="post">
                             <button class="btn btn-dark">@x.text</button>
                         </form>
                     </div>
-                }
-            }
-            @if (Model.linkTexts.Count == 0)
-            {
-            <div class="col">
-                <a asp-page="./index" class="btn btn-dark">Back to Menu</a>
-            </div>
-            <div class="col">
-                <a asp-page="./Game" class="btn btn-dark">Restart</a>
-            </div>
-            <div class="col">
-                <a asp-page="./achievements" class="btn btn-dark">Achievements</a>
-            </div>
-            }
-        </div>
+                    <a asp-page="./Game" asp-route-id="@x.LinkNumber" asp-route-from="">
+                        @x.text
+                    </a>
+
+                                        }
+                                        }
+                                        @if (Model.linkTexts.Count == 0)
+                                        {
+                                            <div class="col">
+                                                <a asp-page="./index" class="btn btn-dark">Back to Menu</a>
+                                            </div>
+                                            <div class="col">
+                                                <a asp-page="./Game" class="btn btn-dark">Restart</a>
+                                            </div>
+                                            <div class="col">
+                                                <a asp-page="./achievements" class="btn btn-dark">Achievements</a>
+                                            </div>
+                                        }
+</div>
     </div>
